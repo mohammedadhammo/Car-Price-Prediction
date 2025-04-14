@@ -5,7 +5,7 @@ import numpy as np
 
 @st.cache_resource
 def load_model():
-    return joblib.load("car_price_model.pkl")
+    return joblib.load("/mount/src/car-price-prediction/ML-Project-UI/car_price_model.pkl")
 
 model = load_model()
 
