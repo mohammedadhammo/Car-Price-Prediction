@@ -2,13 +2,10 @@ import streamlit as st
 import joblib
 import numpy as np
 
-import xgboost as xgb
 
 @st.cache_resource
 def load_model():
-    model = xgb.XGBRegressor()
-    model.load_model("xgb_model.json")  # لو الملف في نفس الفولدر
-    return model
+    return joblib.load("car_price_model.pkl")
 
 model = load_model()
 
