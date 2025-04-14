@@ -3,7 +3,13 @@ import joblib
 import numpy as np
 
 # تحميل النموذج
-model = joblib.load("ML-Project-UI/car_price_model.pkl")
+
+
+@st.cache_resource
+def load_model():
+    return joblib.load("ML-Project-UI/car_price_model.pkl")
+
+model = load_model()
 
 # إعداد الصفحة
 st.set_page_config(page_title="Car Price Predictor", layout="centered")
