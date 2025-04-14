@@ -2,9 +2,16 @@ import streamlit as st
 import joblib
 import numpy as np
 
-# تحميل النموذج
+import xgboost as xgb
 
-model = joblib.load("ML-Project-UI/car_price_model.pkl")
+@st.cache_resource
+def load_model():
+    model = xgb.XGBRegressor()
+    model.load_model("Car-Price-Prediction/xgb_model.json")
+    return model
+
+model = load_model()
+
 
 # إعداد الصفحة
 st.set_page_config(page_title="Car Price Predictor", layout="centered")
