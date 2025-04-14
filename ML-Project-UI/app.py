@@ -7,7 +7,7 @@ import xgboost as xgb
 @st.cache_resource
 def load_model():
     model = xgb.XGBRegressor()
-    model.load_model("xgb_model.json")
+    model.load_model("xgb_model.json")  # لو الملف في نفس الفولدر
     return model
 
 model = load_model()
